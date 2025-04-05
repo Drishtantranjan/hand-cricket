@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hand_cricket/presentation/assets_path.dart';
+import 'package:hand_cricket/presentation/widgets/appBar_card.dart';
 import 'package:hand_cricket/presentation/widgets/hand_gesture_animation_container.dart';
 import 'package:hand_cricket/presentation/widgets/number_picker.dart';
 import 'package:hand_cricket/presentation/widgets/top_container.dart';
@@ -63,10 +64,7 @@ class _GameScreenState extends State<GameScreen> {
         decoration: _buildBackgroundContainerDecoration(),
         child: Column(
           children: [
-            Container(
-              height: 150,
-              color: Colors.black38,
-            ),
+            AppbarCard(),
 
             _buildTopContainer(runValues, isUserBatting),
             const SizedBox(height: 80),
