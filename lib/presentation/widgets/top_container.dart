@@ -29,7 +29,12 @@ class _TopContainerState extends State<TopContainer> {
       child: Stack(
         alignment: Alignment.center,
         children: [
+          Container(
+            height: 400,
+            color: Colors.black38,
+          ),
           Positioned.fill(
+
             child: SvgPicture.asset(
               "assets/Slice 1.svg",
               fit: BoxFit.fill,
