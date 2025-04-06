@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hand_cricket/bloc/game_bloc.dart';
+import 'package:hand_cricket/presentation/screens/game_screen.dart';
 import 'package:hand_cricket/repositories/game_repositories.dart';
-import 'package:hand_cricket/screens/game_screen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hand_cricket/presentation/assets_path.dart';
 
 class AppbarCard extends StatelessWidget {
   const AppbarCard({super.key});
@@ -56,7 +57,7 @@ Widget _buildLogoRow() {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Image.asset(
-        "assets/scapia_logo.png",
+        AssetsPath.scapiaLogo,
         height: 30,
       ),
       SizedBox(
@@ -68,7 +69,7 @@ Widget _buildLogoRow() {
         color: Colors.white54,
       ),
       Image.asset(
-        "assets/rcb_logo.png",
+        AssetsPath.rcbLogo,
         height: 30,
       )
     ],
