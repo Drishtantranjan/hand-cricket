@@ -28,15 +28,18 @@ A fun and interactive 1v1 Hand Cricket game built using Flutter, where the user 
 - **Clean Code Structure** with separation of concerns
 
 ---
-
-## 📁 Folder Structure
-
-
-lib/ ├── bloc/ # BLoC files (GameBloc, Event, State) ├── constants/ # String and asset constants ├── models/ # HandCricketGame model ├── presentation/ │ ├── screens/ # Main game screen │ ├── widgets/ # Reusable UI components ├── repository/ # Game logic repository └── main.dart # App entry point
-
+lib/
+│
+├── constants/              # App-wide constants (assets, strings)
+├── models/                 # Data models (e.g., HandCricketGame)
+├── blocs/                  # BLoC logic and state management
+├── presentation/
+│   ├── widgets/            # Reusable UI widgets
+│   ├── screens/            # App screens (main game)
+├── main.dart               # App entry point
 
 ---
-
+---
 ## ✅ How to Run
 
 1. **Clone the repo**
@@ -44,14 +47,7 @@ lib/ ├── bloc/ # BLoC files (GameBloc, Event, State) ├── constants/ 
    git clone https://github.com/yourusername/hand-cricket-flutter.git
    cd hand-cricket-flutter
 
-2**Get the Dependencies**
+2 **Get the Dependencies**
    ```bash
     flutter pub get
-
-3**Run the command**
-   ```bash
-    flutter run
-
-👨‍💻 Developer
-Drishtant Ranjan
-Flutter Developer | Community Builder | SIH 2023 Winner
+---
