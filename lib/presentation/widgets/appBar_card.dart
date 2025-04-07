@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hand_cricket/presentation/assets_path.dart';
+import 'package:hand_cricket/constants/assets_path.dart';
+import 'package:hand_cricket/constants/strings.dart';
 
 class AppbarCard extends StatelessWidget {
   const AppbarCard({super.key});
@@ -29,7 +30,8 @@ class AppbarCard extends StatelessWidget {
 
 Widget _buildWeeklyScore({int weeklyScore = 0}) {
   return Text(
-    "Your weekly score  :  $weeklyScore",
+    AppStrings.weeklyScoreTitle +"$weeklyScore",
+
     style: TextStyle(
         fontWeight: FontWeight.bold, color: Colors.white, fontSize: 10),
   );
@@ -45,7 +47,7 @@ Widget _buildHighestScore() {
     child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
         child: Text(
-          "Current highest score : 135741",
+          AppStrings.highScoreTitle,
           style: TextStyle(
               fontWeight: FontWeight.bold, color: Colors.white, fontSize: 10),
         )),

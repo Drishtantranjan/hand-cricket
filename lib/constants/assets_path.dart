@@ -3,6 +3,12 @@ class AssetsPath {
   static const String topCard = "assets/Slice 1.svg";
   static const String ball = "assets/ball.png";
 
+  // Overlay Assets
+  static const String sixerOverlay = "assets/sixer.png";
+  static const String outOverlay = "assets/out.png";
+  static const String botWins = "assets/bot_wins.png";
+  static const String userWins = "assets/you_won.png";
+
 
   // Number cards
   static const String oneNumber = "assets/one.png";

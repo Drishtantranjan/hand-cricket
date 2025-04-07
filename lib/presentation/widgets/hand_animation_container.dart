@@ -4,9 +4,11 @@ import 'package:hand_cricket/presentation/widgets/hand_gesture_animation.dart';
 class HandAnimationContainer extends StatelessWidget {
   final int? userNumber;
   final int? botNumber;
+  bool? isUserBatting;
 
-  const HandAnimationContainer({
+  HandAnimationContainer({
     super.key,
+    this.isUserBatting,
     required this.userNumber,
     required this.botNumber,
   });

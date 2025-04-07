@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hand_cricket/presentation/assets_path.dart';
+import 'package:hand_cricket/constants/assets_path.dart';
 
 class TopContainer extends StatefulWidget {
   final Function(int)? onNumberSelected;

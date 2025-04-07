@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hand_cricket/constants/strings.dart';
 
 class TimeText extends StatelessWidget {
   const TimeText({super.key});
@@ -6,7 +7,7 @@ class TimeText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      "Pick a number before timer runs out",
+      AppStrings.timerRunsOut,
       style: TextStyle(
         fontSize: 12,
         color: Colors.white,

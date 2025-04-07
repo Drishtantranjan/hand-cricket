@@ -4,8 +4,6 @@ class HandCricketGame {
   bool isUserBatting;
   bool isGameOver;
   String winner;
-
-  // 👇 New field added
   int? currentBotNumber;
 
   HandCricketGame({
@@ -17,7 +15,9 @@ class HandCricketGame {
     this.currentBotNumber,
   });
 
-  // 👇 You might also need a copyWith if you're using immutability:
+  // Method to get the total runs scored by the user
+  int get totalUserRuns => userRuns.fold(0, (sum, run) => sum + run);
+
   HandCricketGame copyWith({
     List<int>? userRuns,
     List<int>? botRuns,

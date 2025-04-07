@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hand_cricket/presentation/assets_path.dart';
+import 'package:hand_cricket/constants/assets_path.dart';
 
 class NumberPickerWidget extends StatelessWidget {
   final Function(int) onNumberSelected;

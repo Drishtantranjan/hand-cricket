@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hand_cricket/presentation/assets_path.dart';
+import 'package:hand_cricket/constants/assets_path.dart';
 import 'package:rive/rive.dart';
 
 class HandGestureAnimation extends StatefulWidget {

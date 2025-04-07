@@ -4,10 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hand_cricket/bloc/game_bloc.dart';
 import 'package:hand_cricket/presentation/screens/game_screen.dart';
 import 'package:hand_cricket/repositories/game_repositories.dart';
+import 'package:provider/provider.dart';
+import 'package:rive/rive.dart';
 
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await RiveFile.initialize();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.transparent,
     systemNavigationBarIconBrightness: Brightness.light,
@@ -19,7 +22,20 @@ void main() {
     SystemUiMode.edgeToEdge,
   );
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<GameRepository>(
+          create: (_) => GameRepository(),
+        ),
+        Provider<GameBloc>(
+          create: (context) => GameBloc(context.read<GameRepository>()),
+          dispose: (_, bloc) => bloc.close(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
