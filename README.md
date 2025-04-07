@@ -44,11 +44,14 @@ lib/ ├── bloc/ # BLoC files (GameBloc, Event, State) ├── constants/ 
    git clone https://github.com/yourusername/hand-cricket-flutter.git
    cd hand-cricket-flutter
 
+2**Get the Dependencies**
+   ```bash
+    flutter pub get
+
+3**Run the command**
+   ```bash
+    flutter run
+
 👨‍💻 Developer
 Drishtant Ranjan
 Flutter Developer | Community Builder | SIH 2023 Winner
-
-🙌 Acknowledgements
-Rive for beautiful animations
-
-Flutter Community for amazing support
