@@ -3,6 +3,14 @@
 A fun and interactive 1v1 Hand Cricket game built using Flutter, where the user plays against a bot. The game follows classic hand cricket rules with innings, scoring, and win/loss outcomes. Developed with production-ready architecture using BLoC, clean UI, animations, and game state management.
 
 ---
+![Screenshot 2025-04-08 044327](https://github.com/user-attachments/assets/0b510707-67be-426f-a99f-257eb6a597b2)
+![Screenshot 2025-04-08 002708](https://github.com/user-attachments/assets/7c412062-b7c9-4c02-8aa5-4a0b6557a8bc)
+
+
+https://github.com/user-attachments/assets/5b6692ae-7530-4767-8f38-1fc6c5410345
+
+
+
 
 ## 🚀 Features
 
