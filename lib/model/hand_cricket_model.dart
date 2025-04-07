@@ -1,27 +1,30 @@
 class HandCricketGame {
-  final List<int> userRuns;
-  final List<int> botRuns;
-  final bool isUserBatting;
-  final bool isGameOver;
-  final String winner;
+  List<int> userRuns;
+  List<int> botRuns;
+  bool isUserBatting;
+  bool isGameOver;
+  String winner;
+
+  // 👇 New field added
+  int? currentBotNumber;
 
   HandCricketGame({
-    this.userRuns = const [],
-    this.botRuns = const [],
-    this.isUserBatting = true,
-    this.isGameOver = false,
-    this.winner = '',
+    required this.userRuns,
+    required this.botRuns,
+    required this.isUserBatting,
+    required this.isGameOver,
+    required this.winner,
+    this.currentBotNumber,
   });
 
-  int get userScore => userRuns.fold(0, (sum, run) => sum + run);
-  int get botScore => botRuns.fold(0, (sum, run) => sum + run);
-
+  // 👇 You might also need a copyWith if you're using immutability:
   HandCricketGame copyWith({
     List<int>? userRuns,
     List<int>? botRuns,
     bool? isUserBatting,
     bool? isGameOver,
     String? winner,
+    int? currentBotNumber,
   }) {
     return HandCricketGame(
       userRuns: userRuns ?? this.userRuns,
@@ -29,6 +32,7 @@ class HandCricketGame {
       isUserBatting: isUserBatting ?? this.isUserBatting,
       isGameOver: isGameOver ?? this.isGameOver,
       winner: winner ?? this.winner,
+      currentBotNumber: currentBotNumber ?? this.currentBotNumber,
     );
   }
 }

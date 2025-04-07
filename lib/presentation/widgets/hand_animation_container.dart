@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hand_cricket/presentation/widgets/hand_gesture_animation.dart';
 
-class HandAnimationContainer extends StatefulWidget {
+class HandAnimationContainer extends StatelessWidget {
   final int? userNumber;
   final int? botNumber;
-  const HandAnimationContainer({this.userNumber, this.botNumber, super.key});
 
-  @override
-  State<HandAnimationContainer> createState() => _HandAnimationContainerState();
-}
+  const HandAnimationContainer({
+    super.key,
+    required this.userNumber,
+    required this.botNumber,
+  });
 
-class _HandAnimationContainerState extends State<HandAnimationContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 130,
       width: 220,
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0XFFAC853E)),
+        border: Border.all(color: const Color(0XFFAC853E)),
         borderRadius: BorderRadius.circular(20),
         color: Colors.black38,
       ),
@@ -27,26 +27,24 @@ class _HandAnimationContainerState extends State<HandAnimationContainer> {
           Expanded(
             child: Transform.flip(
               flipX: true,
-              child: Container(
-                  height: 300,
-                  child: HandGestureAnimation(
-                    userNumber: widget.userNumber,
-                    botNumber: null,
-                  )),
+              child: SizedBox(
+                height: 130,
+                child: HandGestureAnimation(
+                  isUser: true,
+                  number: userNumber,
+                ),
+              ),
             ),
           ),
           Expanded(
-            child: Container(
-              height: 300,
+            child: SizedBox(
+              height: 130,
               child: HandGestureAnimation(
-                userNumber: widget.userNumber,
-                botNumber: 6,
-                onAnimationComplete: () {
-                  // Handle what happens after animation completes
-                },
+                isUser: true,
+                number: botNumber,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

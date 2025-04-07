@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hand_cricket/presentation/assets_path.dart';
 import 'package:rive/rive.dart';
 
 class HandGestureAnimation extends StatefulWidget {
-  final int? userNumber;
-  final int? botNumber;
+  final bool isUser;
+  final int? number;
   final VoidCallback? onAnimationComplete;
 
   const HandGestureAnimation({
     Key? key,
-    this.userNumber,
-    this.botNumber,
+    required this.isUser,
+    required this.number,
     this.onAnimationComplete,
   }) : super(key: key);
 
@@ -21,10 +22,7 @@ class HandGestureAnimation extends StatefulWidget {
 class _HandGestureAnimationState extends State<HandGestureAnimation> {
   Artboard? _artboard;
   StateMachineController? _controller;
-
-  // Number inputs for user and bot
-  SMINumber? _userNumberInput;
-  SMINumber? _botNumberInput;
+  SMINumber? _numberInput;
 
   @override
   void initState() {
@@ -34,7 +32,7 @@ class _HandGestureAnimationState extends State<HandGestureAnimation> {
 
   Future<void> _loadRiveFile() async {
     try {
-      final data = await rootBundle.load('assets/hand_cricket.riv');
+      final data = await rootBundle.load(AssetsPath.handAnimation);
       final file = RiveFile.import(data);
       final artboard = file.mainArtboard;
       final controller = StateMachineController.fromArtboard(
@@ -46,11 +44,13 @@ class _HandGestureAnimationState extends State<HandGestureAnimation> {
         artboard.addController(controller);
         _controller = controller;
 
-        // Look for number inputs — make sure they match your Rive file names
-        _userNumberInput =
-        controller.findInput<double>('Input') as SMINumber?;
-        _botNumberInput =
-        controller.findInput<double>('BotInput') as SMINumber?;
+        _numberInput = controller.findInput<double>(
+          widget.isUser ? 'Input' : 'BotInput',
+        ) as SMINumber?;
+
+        if (_numberInput == null) {
+          debugPrint("Error: ${widget.isUser ? 'Input' : 'BotInput'} not found");
+        }
 
         setState(() {
           _artboard = artboard;
@@ -64,12 +64,8 @@ class _HandGestureAnimationState extends State<HandGestureAnimation> {
   }
 
   void _triggerAnimation() {
-    if (_userNumberInput != null && widget.userNumber != null) {
-      _userNumberInput!.value = widget.userNumber!.toDouble();
-    }
-
-    if (_botNumberInput != null && widget.botNumber != null) {
-      _botNumberInput!.value = widget.botNumber!.toDouble();
+    if (_numberInput != null && widget.number != null) {
+      _numberInput!.value = widget.number!.toDouble();
     }
   }
 
@@ -77,8 +73,7 @@ class _HandGestureAnimationState extends State<HandGestureAnimation> {
   void didUpdateWidget(covariant HandGestureAnimation oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (widget.userNumber != oldWidget.userNumber ||
-        widget.botNumber != oldWidget.botNumber) {
+    if (widget.number != oldWidget.number) {
       _triggerAnimation();
     }
   }

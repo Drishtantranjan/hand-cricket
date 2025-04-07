@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hand_cricket/presentation/assets_path.dart';
 
 class TopContainer extends StatefulWidget {
   final Function(int)? onNumberSelected;
@@ -34,9 +35,8 @@ class _TopContainerState extends State<TopContainer> {
             color: Colors.black38,
           ),
           Positioned.fill(
-
             child: SvgPicture.asset(
-              "assets/Slice 1.svg",
+              AssetsPath.topCard,
               fit: BoxFit.fill,
             ),
           ),
@@ -61,50 +61,50 @@ class _TopContainerState extends State<TopContainer> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildRunContainer(25, 0),
+            _buildRunContainer(0),
             const SizedBox(width: 5),
-            _buildRunContainer(25, 1),
+            _buildRunContainer(1),
             const SizedBox(width: 5),
-            _buildRunContainer(25, 2),
+            _buildRunContainer(2),
           ],
         ),
         const SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildRunContainer(25, 3),
+            _buildRunContainer(3),
             const SizedBox(width: 5),
-            _buildRunContainer(25, 4),
+            _buildRunContainer(4),
             const SizedBox(width: 5),
-            _buildRunContainer(25, 5),
+            _buildRunContainer(5),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildRunContainer(double size, int index) {
-    final runValue = widget.runValues[index];
+  Widget _buildRunContainer(int index) {
+    final runValue = index < widget.runValues.length ? widget.runValues[index] : 0;
     final isActive = runValue > 0;
 
     return Container(
-      height: size,
-      width: size,
+      height: MediaQuery.of(context).size.height * 0.03,
+      width: MediaQuery.of(context).size.width * 0.065,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(9),
         color: isActive ? Colors.green : Colors.black87,
       ),
       child: isActive
           ? Center(
-              child: Text(
-                runValue.toString(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-            )
+        child: Text(
+          runValue.toString(),
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+        ),
+      )
           : null,
     );
   }
@@ -138,14 +138,15 @@ class _TopContainerState extends State<TopContainer> {
   }
 
   Widget _buildBall({int ballCount = 0}) {
-    final runValue = widget.runValues[ballCount];
+    final runValue = ballCount < widget.runValues.length ? widget.runValues[ballCount] : 0;
     final isActive = runValue > 0;
+
     return SizedBox(
       height: 25,
       width: 25,
       child: Opacity(
         opacity: isActive ? 1.0 : 0.2,
-        child: Image.asset("assets/ball.png"),
+        child: Image.asset(AssetsPath.ball),
       ),
     );
   }

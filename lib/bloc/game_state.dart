@@ -3,13 +3,23 @@ import 'package:hand_cricket/model/hand_cricket_model.dart';
 abstract class GameState {
   final HandCricketGame game;
 
-  GameState(this.game);
+  const GameState(this.game);
 }
 
 class GameInitialState extends GameState {
-  GameInitialState() : super(HandCricketGame());
+  GameInitialState()
+      : super(
+    HandCricketGame(
+      userRuns: [],
+      botRuns: [],
+      isUserBatting: true,
+      isGameOver: false,
+      winner: '',
+      currentBotNumber: null,
+    ),
+  );
 }
 
 class GameUpdatedState extends GameState {
-  GameUpdatedState(HandCricketGame game) : super(game);
+  const GameUpdatedState(HandCricketGame game) : super(game);
 }
