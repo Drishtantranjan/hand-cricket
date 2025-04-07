@@ -10,9 +10,8 @@ class NameRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gameState = context.watch<GameBloc>().state; // get the state
-    final runsToWin = gameState.game.totalUserRuns; // access total user runs
-
+    final gameState = context.watch<GameBloc>().state;
+    final runsToWin = gameState.game.totalUserRuns;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Stack(

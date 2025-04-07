@@ -51,12 +51,12 @@ class OutwardCurveBadgeClipper extends CustomClipper<Path> {
 
     // Right outward curve
     path.cubicTo(
-      size.width + curveControl, // control point 1 x
-      size.height * 0.3, // control point 1 y
-      size.width + curveControl, // control point 2 x
-      size.height * 0.7, // control point 2 y
-      size.width, // end x
-      size.height - bottomRadius, // end y
+      size.width + curveControl,
+      size.height * 0.3,
+      size.width + curveControl,
+      size.height * 0.7,
+      size.width,
+      size.height - bottomRadius,
     );
 
     // Bottom-right corner curve

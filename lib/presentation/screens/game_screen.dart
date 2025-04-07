@@ -160,8 +160,6 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ),
             ),
-
-            /// Overlay on top
             if (overlayType != null)
               GameOverlays(
                 type: overlayType!,
